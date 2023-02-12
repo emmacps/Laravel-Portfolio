@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\HomeSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+ // Admin All Route 
+ Route::middleware(['auth'])->group(function () {
 // Admin All Route
 Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
@@ -38,6 +41,17 @@ Route::controller(AdminController::class)->group(function () {
 
     Route::get('/change/password', 'ChangePassword')->name('change.password');
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
+
+});
+
+});
+
+// Home Slide All Route
+Route::controller(HomeSliderController::class)->group(function () {
+    Route::get('/home/slider', 'HomeSlider')->name('home.slide');
+    Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
+    
+
 });
 
 require __DIR__.'/auth.php';
