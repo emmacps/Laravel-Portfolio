@@ -8,6 +8,7 @@ use App\Http\Controllers\Home\AboutController;
 use App\Http\Controllers\Home\PortfolioController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
+use App\Http\Controllers\Home\FooterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -114,6 +115,13 @@ Route::controller(BlogController::class)->group(function () {
 
     Route::get('/blog', 'HomeBlog')->name('home.blog');
  
+});
+
+// Home Slide All Route
+Route::controller(FooterController::class)->group(function () {
+    Route::get('/footer/setup', 'FooterSetup')->name('footer.setup');
+    Route::post('/update/footer', 'UpdateFooter')->name('update.footer');
+    
 });
 
 require __DIR__.'/auth.php';
