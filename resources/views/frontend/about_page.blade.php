@@ -1,7 +1,9 @@
 @extends('frontend.main_master')
 @section('frontend.index')
     
-
+@section('title')
+    About Page
+@endsection
         <!-- main-area -->
         <main>
 

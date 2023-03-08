@@ -12,5 +12,5 @@ class DemoController extends Controller
         return view('about');
     }
 
-    public function 
+    //public function 
 }
